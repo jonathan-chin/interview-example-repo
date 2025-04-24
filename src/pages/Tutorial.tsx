@@ -52,8 +52,9 @@ const Tutorial: React.FC<TutorialProps> = ({
   const scrolRight = () => {
     // need to check if the ref is set or if the component is still rendering
     if(sliderRef.current){
-      const currentScroll = sliderRef.current.scrollLeft;
-      const screenWidth = window.innerWidth;
+      // cast as boolean so button move if there's nothing left to scroll
+      const currentScroll: boolean = sliderRef.current.scrollLeft;
+      const screenWidth: boolean = window.innerWidth;
       sliderRef.current.scrollTo({
         left: currentScroll + screenWidth,
         behavior: 'smooth'
